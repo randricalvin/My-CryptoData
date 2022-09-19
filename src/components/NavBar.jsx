@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="flex flex-row justify-between items-center font-serif ml-5 mr-20 my-5">
+    <div className="flex flex-row justify-around items-center font-serif my-5">
       <div className="">
         <Link to="/" className="font-bold text-3xl">
           My CryptoData

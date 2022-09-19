@@ -1,14 +1,13 @@
 import React from "react";
 import Title from "../components/Title";
+import HomeImage from "../components/HomeImage";
 
 function Home() {
   return (
-    <div>
-      <div>
-        <h1>Home text</h1>
+      <div className="page-home flex"> 
         <Title />
+        <HomeImage />
       </div>
-    </div>
   );
 }
 
