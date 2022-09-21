@@ -6,10 +6,44 @@ import Coins from './Coins'
 const CoinsList = () => {
     const [coins, setCoins] = useState([])
     const [search, setSearch] = useState('')
-    
+    const [display, setDisplay] = useState(50)
+    const [seeMore, setSeeMore] = useState(false)
+    const [seeLess, setSeeLess] = useState(false)
+    console.log (display)
+    console.log (seeMore)
+
+
     useEffect(() => {
         axios
-            .get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
+            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false')
+            .then(res => {
+                setDisplay(50)
+                setCoins(res.data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+
+    
+    useEffect (() => {
+        if (display >= coins.length) {
+            setSeeMore(false)
+        } else {
+            setSeeMore(true)
+        }
+    }, [display, coins])
+
+    useEffect (() => {
+        if (display <= 50) {
+            setSeeLess(false)
+        } else {
+            setSeeLess(true)
+        }
+    }, [display])
+
+
+    useEffect(() => {
+        axios
+            .get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false`)
             .then(res => {
                 setCoins(res.data)
                 console.log(res.data)
@@ -17,17 +51,20 @@ const CoinsList = () => {
             .catch(error => console.log(error))
     }, [])
 
+
     const handleChange = e => {
         setSearch(e.target.value)
     }
+
 
     const filteredCoins = coins.filter(coin =>
         coin.name.toLowerCase().includes(search.toLowerCase())
     )
 
+
   return (
     <div className="font-sans">
-        <div className='flex justify-center my-10'>
+        <div className='flex justify-center my-20'>
             <input
             className="bg-lightGrey h-10 w-1/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
             type="search"
@@ -43,10 +80,10 @@ const CoinsList = () => {
         <div className="overflow-x-auto">
             <div className="flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
-                    <div className="bg-white shadow-md rounded">
-                        <table className="min-w-max w-full table-auto">
+                    <div className="shadow-xl">
+                        <table className="min-w-max w-full table-auto h-14">
                             <thead>
-                                <tr className="bg-gray-200 text-gray-600 uppercase text-m">
+                                <tr className="bg-[#201E50] text-white uppercase text-m ">
                                     <th className="py-3 px-6 text-center w-1/6">RANK</th>
                                     <th className="py-3 px-6 text-start w-1/6">NAME</th>
                                     <th className="py-3 px-6 text-end w-1/6">PRICE</th>
@@ -60,25 +97,32 @@ const CoinsList = () => {
                 </div>
             </div>
         </div>
-        {filteredCoins.map(coin => {
-            return (
-                <Coins 
-                key={coin.id}
-                id = {coin.id}
-                name={coin.name}
-                price={coin.current_price}
-                symbol={coin.symbol}
-                marketcap={coin.market_cap}
-                image={coin.image}
-                supply={coin.total_supply}
-                priceChange={coin.price_change_percentage_24h}
-                rank={coin.market_cap_rank}
-                change24h={coin.price_change_percentage_24h}
-                lastUpdate={coin.last_updated}
-                />
-            )
-        }
-        )}
+            {filteredCoins.slice(0, display).map(coin => {
+                return (
+                    <Coins
+                    key={coin.id}
+                    id = {coin.id}
+                    name={coin.name}
+                    price={coin.current_price}
+                    symbol={coin.symbol}
+                    marketcap={coin.market_cap}
+                    image={coin.image}
+                    supply={coin.total_supply}
+                    priceChange={coin.price_change_percentage_24h}
+                    rank={coin.market_cap_rank}
+                    change24h={coin.price_change_percentage_24h}
+                    lastUpdate={coin.last_updated}
+                    />
+                )
+            })}
+            <div className="flex justify-center">
+                <div className="flex justify-center my-8 mx-5">
+                {seeMore && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg shadow-blue-500/20 hover:-translate-y-1 hover:scale-105" onClick={() => setDisplay(display + 50)}>View More</button>}
+                </div>
+                <div className="flex justify-center my-8">
+                {seeLess && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg shadow-blue-500/20 hover:-translate-y-1 hover:scale-105" onClick={() => setDisplay(display - 50)}>View Less</button>}
+                </div>
+            </div>
     </div>
   )
 }

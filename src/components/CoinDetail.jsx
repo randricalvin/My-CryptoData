@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import CoinChart from './CoinChart'
 
 const CoinDetail = () => {
   const {id} = useParams()
@@ -29,8 +28,8 @@ const CoinDetail = () => {
 
   return (
     <div className="font-sans">
-        <div className="flex justify-center items-center">
-            {coinDetail.market_cap_rank ? <span className="text-lg bg-[#4540ca] flex justify-center items-center text-[#F5F4F2] rounded-full" style={{width : "2.5rem", height : "2.5rem"}}>#{coinDetail.market_cap_rank}</span> : null}
+        <div className="flex justify-center items-center mt-20">
+            {coinDetail.market_cap_rank ? <span className="text-lg bg-[#4540ca] flex justify-center items-center text-[#F5F4F2] rounded-full" style={{minWidth : "2.5rem", minHeight : "2.5rem"}}>#{coinDetail.market_cap_rank}</span> : null}
             <h1 className='text-4xl font-bold flex justify-center items-center mx-2'>{coinDetail.name}</h1>
           </div>
             <div className='flex justify-around items-center my-16'>
@@ -45,10 +44,10 @@ const CoinDetail = () => {
           <div className="overflow-x-auto">
             <div className="flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
-                    <div className="bg-[#201E50] text-[#F5F4F2] shadow-lg">
-                        <table className="min-w-max w-full table-auto">
+                    <div className="bg-[#201E50] text-[#F5F4F2] shadow-xl">
+                        <table className="min-w-max w-full table-auto mt-10 mb-28">
                           <thead>
-                                <tr>
+                                <tr className="text-lg">
                                     <th className="py-3 px-6 text-center w-1/6">1H</th>
                                     <th className="py-3 px-6 text-center w-1/6">24H</th>
                                     <th className="py-3 px-6 text-center w-1/6">7D</th>
@@ -57,29 +56,40 @@ const CoinDetail = () => {
                                     <th className="py-3 px-6 text-center w-1/6">1Y</th>
                                 </tr>
                             </thead>
-                <tbody>
-                    <tr>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1h_in_currency ? <p>{coinDetail.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_24h_in_currency ? <p>{coinDetail.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_7d_in_currency ? <p>{coinDetail.market_data.price_change_percentage_7d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_14d_in_currency ? <p>{coinDetail.market_data.price_change_percentage_14d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_30d_in_currency ? <p>{coinDetail.market_data.price_change_percentage_30d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                        <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1y_in_currency ? <p>{coinDetail.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}%</p> : null}</td>
-
-                    </tr>
-                </tbody>
-            </table>
-            </div>
-            </div>
-            </div>
-          </div>
-          <div>
-            <h1 className='text-2xl font-bold flex justify-start'>About</h1>
-            {coinDetail.description ? <p>{coinDetail.description.en}</p> : null}
-          </div>
-          <CoinChart coinData={coinData} />
-    </div>
-  )
+                            <tbody className="text-lg">
+                                <tr>
+                                    {/* 1h */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                    
+                                    {/* 24h */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_24h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                      
+                                    {/* 7d */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_7d_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_7d_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_7d_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                    
+                                    {/* 14d */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_14d_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_14d_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_14d_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                    
+                                    {/* 30d */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_30d_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_30d_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_30d_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                    
+                                    {/* 1y */}
+                                    <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1y_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_1y_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_1y_in_currency.usd.toFixed(2)}%</span> : null}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <div className="flex items-center justify-center">
+                      <div className="w-full lg:w-5/6">
+                        <h1 className='text-2xl font-bold mb-5'>About</h1>
+                        <span>{coinDetail.description ? <p className="text-justify mb-20">{coinDetail.description.en}</p> : null}</span>
+                      </div>
+                  </div>
+  </div>
+)
 }
 
 export default CoinDetail

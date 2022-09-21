@@ -10,8 +10,7 @@ function Title() {
         </div>
         <div className="p-presentation mt-5">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusamus esse doloribus veritatis odio, facere odit quaerat expedita possimus obcaecati? Voluptatibus ab consequatur perferendis quia explicabo, tempora placeat dolor exercitationem?
-            </p>
+            MCD is the website for tracking crypto asset prices. Find out in real time the price of crypto-currencies and information about them.</p>
         </div>
     </div>
   )

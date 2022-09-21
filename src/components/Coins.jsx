@@ -19,11 +19,11 @@ const Coins = (
         <div className="overflow-x-auto">
             <div className="min-w-screen flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
-                    <div className="bg-white shadow-md rounded">
+                    <div className="bg-white shadow-md">
                         <div className="min-w-max w-full table-auto">
-                            <table className="min-w-max w-full table-auto">
-                                <tbody className="text-gray-600 text-m font-medium">
-                                    <tr className="border-b border-gray-200 hover:bg-gray-100 ">
+                            <table className="min-w-max w-full table-auto h-14">
+                                <tbody className="text-m font-medium">
+                                    <tr className="border-b border-gray-200 hover:bg-[#4540ca13]">
                                         <td className="text-left whitespace-nowrap w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-center">
@@ -58,11 +58,11 @@ const Coins = (
                                         </td>
                                         <td className="py-3 px-6 w-1/6">
                                             {change24h < 0 ? (
-                                                <span className="flex items-center justify-end text-red-500">
+                                                <span className="flex items-center justify-center text-red-500">
                                                     {change24h.toFixed(2)}%
                                                 </span>
                                             ) : (
-                                                <span className="flex items-center justify-end text-green-500">
+                                                <span className="flex items-center justify-center text-green-500">
                                                     {change24h.toFixed(2)}%
                                                 </span>
                                             )}
