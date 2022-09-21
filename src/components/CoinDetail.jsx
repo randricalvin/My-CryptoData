@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import CoinChart from './CoinChart'
 
 const CoinDetail = () => {
   const {id} = useParams()
   const [coinDetail, setCoinDetail] = useState({})
+  const [coinData, setCoinData] = useState({})
+  console.log (coinData)
   
   useEffect(() => {
       axios.get(`https://api.coingecko.com/api/v3/coins/${id}`)
@@ -15,10 +18,17 @@ const CoinDetail = () => {
       .catch(error => console.log(error))
   }, [id])
 
-  console.log (coinDetail)
+  useEffect(() => {
+    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=1&interval=hourly`)
+    .then(res => {
+        setCoinData(res.data)
+        console.log(res.data)
+    })
+    .catch(error => console.log(error))
+}, [id])
 
   return (
-    <div>
+    <div className="font-sans">
         <div className="flex justify-center items-center">
             {coinDetail.market_cap_rank ? <span className="text-lg bg-[#4540ca] flex justify-center items-center text-[#F5F4F2] rounded-full" style={{width : "2.5rem", height : "2.5rem"}}>#{coinDetail.market_cap_rank}</span> : null}
             <h1 className='text-4xl font-bold flex justify-center items-center mx-2'>{coinDetail.name}</h1>
@@ -67,6 +77,7 @@ const CoinDetail = () => {
             <h1 className='text-2xl font-bold flex justify-start'>About</h1>
             {coinDetail.description ? <p>{coinDetail.description.en}</p> : null}
           </div>
+          <CoinChart coinData={coinData} />
     </div>
   )
 }

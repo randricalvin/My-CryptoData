@@ -10,49 +10,62 @@ const Coins = (
     supply,
     priceChange,
     marketcap,
-    rank}
+    rank,
+    change24h,
+    lastUpdate}
 ) => {
   return (
-    <div>
+    <div className="font-sans">
         <div className="overflow-x-auto">
             <div className="min-w-screen flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                     <div className="bg-white shadow-md rounded">
                         <div className="min-w-max w-full table-auto">
                             <table className="min-w-max w-full table-auto">
-                                <tbody className="text-gray-600 text-lg font-medium">
+                                <tbody className="text-gray-600 text-m font-medium">
                                     <tr className="border-b border-gray-200 hover:bg-gray-100 ">
-                                        <td className="text-left whitespace-nowrap w-1/5">
+                                        <td className="text-left whitespace-nowrap w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-center">
                                                     <span>#{rank}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-nowrap w-1/5">
+                                        <td className="text-left whitespace-nowrap w-1/6">
                                             <div className="flex items-center justify-start">
                                                 <div className="py-3 px-6 text-left">
-                                                    <img className="w-10 h-10 rounded-full" src={image} alt="coin"/>
+                                                    <img className="w-8 h-8 rounded-full" src={image} alt="coin"/>
                                                 </div>
                                             <Link to={`/market/${id}`}>
-                                                <span className="font-medium">{name}</span>
+                                                <span>{name}</span>
                                             </Link>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-nowrap w-1/5">
+                                        <td className="text-left whitespace-nowrap w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-end">
-                                                    <span>${price.toLocaleString()}</span>
+                                                    <span>${price.toFixed(2).toLocaleString()}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="py-3 px-6 w-1/5">
+                                        <td className="py-3 px-6 w-1/6">
                                             <div className="flex items-center justify-end">
-                                                <span>${marketcap.toLocaleString()}</span>
+                                                <span>${(marketcap/1000000000).toFixed(2)}B</span>
                                             </div>
                                         </td>
-                                        <td className="py-3 px-6 w-1/5">
-                                            <span className="flex items-center justify-end">{supply}</span>
+                                        <td className="py-3 px-6 w-1/6">
+                                            <span className="flex items-center justify-end">{(supply/1000000).toFixed(2)}M</span>
+                                        </td>
+                                        <td className="py-3 px-6 w-1/6">
+                                            {change24h < 0 ? (
+                                                <span className="flex items-center justify-end text-red-500">
+                                                    {change24h.toFixed(2)}%
+                                                </span>
+                                            ) : (
+                                                <span className="flex items-center justify-end text-green-500">
+                                                    {change24h.toFixed(2)}%
+                                                </span>
+                                            )}
                                         </td>
                                     </tr>
                                 </tbody>

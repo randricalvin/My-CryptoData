@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Coins from './Coins'
-import iconsearch from "../assets/iconsearch.svg";
 
 
 const CoinsList = () => {
@@ -27,8 +26,8 @@ const CoinsList = () => {
     )
 
   return (
-    <div className='w-full'>
-        <div className='flex justify-center'>
+    <div className="font-sans">
+        <div className='flex justify-center my-10'>
             <input
             className="bg-lightGrey h-10 w-1/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
             type="search"
@@ -40,16 +39,6 @@ const CoinsList = () => {
             onChange={handleChange}
             value={filteredCoins.name}
             />
-            <button
-            type="button"
-            className="bg-lightGrey flex justify-center w-10"
-            >
-            <img
-                src={iconsearch}
-                alt="search"
-                className="h-10 w-4"
-            />
-            </button>
         </div>
         <div className="overflow-x-auto">
             <div className="flex items-center justify-center">
@@ -57,12 +46,13 @@ const CoinsList = () => {
                     <div className="bg-white shadow-md rounded">
                         <table className="min-w-max w-full table-auto">
                             <thead>
-                                <tr className="bg-gray-200 text-gray-600 uppercase text-lg leading-normal w-1/5">
-                                    <th className="py-3 px-6 text-center w-1/5">RANK</th>
-                                    <th className="py-3 px-6 text-start w-1/5">NAME</th>
-                                    <th className="py-3 px-6 text-end w-1/5">PRICE</th>
-                                    <th className="py-3 px-6 text-end w-1/5">MARKET CAP</th>
-                                    <th className="py-3 px-6 text-end w-1/5">TOTAL SUPPLY</th>
+                                <tr className="bg-gray-200 text-gray-600 uppercase text-m">
+                                    <th className="py-3 px-6 text-center w-1/6">RANK</th>
+                                    <th className="py-3 px-6 text-start w-1/6">NAME</th>
+                                    <th className="py-3 px-6 text-end w-1/6">PRICE</th>
+                                    <th className="py-3 px-6 text-end w-1/6">MARKET CAP</th>
+                                    <th className="py-3 px-6 text-end w-1/6">TOTAL SUPPLY</th>
+                                    <th className="py-3 px-6 text-end w-1/6">PRICE CHANGE(24H)</th>
                                 </tr>
                             </thead>
                         </table>
@@ -83,6 +73,8 @@ const CoinsList = () => {
                 supply={coin.total_supply}
                 priceChange={coin.price_change_percentage_24h}
                 rank={coin.market_cap_rank}
+                change24h={coin.price_change_percentage_24h}
+                lastUpdate={coin.last_updated}
                 />
             )
         }
