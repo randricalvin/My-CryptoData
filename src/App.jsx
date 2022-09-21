@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Market from "./pages/Market";
 import AboutUs from "./pages/AboutUs";
+import CoinDetail from "./components/CoinDetail";
 
 import "./App.css";
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/market" element={<Market />} />
+        <Route path="/market/:id" element={<CoinDetail />} />
         <Route path="/about" element={<AboutUs />} />
       </Routes>
     </Router>

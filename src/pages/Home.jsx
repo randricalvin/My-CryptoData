@@ -5,7 +5,7 @@ import ButtonStart from "../components/ButtonStart";
 
 function Home() {
   return (
-      <div className="page-home flex"> 
+      <div className="page-home flex font-sans"> 
         <div className="flex flex-col">
           <Title />
           <ButtonStart />
