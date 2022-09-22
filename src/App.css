@@ -6,6 +6,8 @@
 /* Language: css */
 body {
   background-color: #f3f3eb;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .text-presentation {
