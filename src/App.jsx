@@ -1,15 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// eslint-disable-next-line import/no-unresolved
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Market from "./pages/Market";
 import AboutUs from "./pages/AboutUs";
 import CoinDetail from "./components/CoinDetail";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
 function App() {
   return (
+    <div>
     <Router>
       <NavBar />
       <Routes>
@@ -19,6 +20,8 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
       </Routes>
     </Router>
+    <Footer />
+    </div>
   );
 }
 
