@@ -15,7 +15,7 @@ const Coins = (
     lastUpdate}
 ) => {
   return (
-    <div className="font-sans">
+    <div className="font-sans w-full">
         <div className="overflow-x-auto">
             <div className="min-w-screen flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
@@ -37,14 +37,14 @@ const Coins = (
                                                     <img className="w-8 h-8 rounded-full" src={image} alt="coin"/>
                                                 </div>
                                             <Link to={`/market/${id}`}>
-                                                <span>{name}</span>
+                                                <span className="hover:font-extrabold">{name}</span>
                                             </Link>
                                             </div>
                                         </td>
                                         <td className="text-left whitespace-nowrap w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-end">
-                                                    <span>${price.toFixed(2).toLocaleString()}</span>
+                                                    <span>${price.toFixed(2)}</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -74,8 +74,7 @@ const Coins = (
                 </div>
             </div>
         </div>
-</div>      
-
+    </div>      
     </div>
   )
 }

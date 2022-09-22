@@ -63,7 +63,7 @@ const CoinsList = () => {
 
 
   return (
-    <div className="font-sans">
+    <div className="font-sans w-full">
         <div className='flex justify-center my-20'>
             <input
             className="bg-lightGrey h-10 w-1/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
