@@ -15,7 +15,7 @@ const Coins = (
     lastUpdate}
 ) => {
   return (
-    <div className="font-sans w-full">
+    <div className="font-sans">
         <div className="overflow-x-auto">
             <div className="min-w-screen flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
@@ -23,28 +23,28 @@ const Coins = (
                         <div className="min-w-max w-full table-auto">
                             <table className="min-w-max w-full table-auto h-14">
                                 <tbody className="text-m font-medium">
-                                    <tr className="border-b border-gray-200 hover:bg-[#4540ca13]">
-                                        <td className="text-left whitespace-nowrap w-1/6">
+                                    <tr className="border-b border-gray-200 hover:bg-[#4540ca13] duration-100 ease-in-out">
+                                        <td className="text-left whitespace-normal w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-center">
                                                     <span>#{rank}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-nowrap w-1/6">
+                                        <td className="text-left whitespace-normal w-1/6">
                                             <div className="flex items-center justify-start">
                                                 <div className="py-3 px-6 text-left">
                                                     <img className="w-8 h-8 rounded-full" src={image} alt="coin"/>
                                                 </div>
                                             <Link to={`/market/${id}`}>
-                                                <span className="hover:font-extrabold">{name}</span>
+                                                <span className=" hover:font-extrabold ease-in-out duration-300 ">{name}</span>
                                             </Link>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-nowrap w-1/6">
+                                        <td className="text-left whitespace-normal w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-end">
-                                                    <span>${price.toFixed(2)}</span>
+                                                    <span>${price}</span>
                                                 </div>
                                             </div>
                                         </td>
@@ -53,10 +53,10 @@ const Coins = (
                                                 <span>${(marketcap/1000000000).toFixed(2)}B</span>
                                             </div>
                                         </td>
-                                        <td className="py-3 px-6 w-1/6">
+                                        <td className="py-3 px-6 w-1/6 whitespace-normal">
                                             <span className="flex items-center justify-end">{(supply/1000000).toFixed(2)}M</span>
                                         </td>
-                                        <td className="py-3 px-6 w-1/6">
+                                        <td className="py-3 px-6 w-1/6 whitespace-normal">
                                             {change24h < 0 ? (
                                                 <span className="flex items-center justify-center text-red-500">
                                                     {change24h.toFixed(2)}%
