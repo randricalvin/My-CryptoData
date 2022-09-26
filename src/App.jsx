@@ -1,8 +1,9 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Market from "./pages/Market";
-import AboutUs from "./pages/AboutUs";
+import CryptoNews from "./pages/CryptoNews";
 import CoinDetail from "./components/CoinDetail";
 import Footer from "./components/Footer";
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/market" element={<Market />} />
         <Route path="/market/:id" element={<CoinDetail />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/news" element={<CryptoNews />} />
       </Routes>
     </Router>
     <Footer />
