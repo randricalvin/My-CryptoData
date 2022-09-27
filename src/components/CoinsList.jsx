@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Coins from './Coins'
+import "../App.css";
 
 
 const CoinsList = () => {
@@ -70,8 +71,8 @@ const CoinsList = () => {
             <div className="flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                     <div className="shadow-xl">
-                        <table className="min-w-max w-full table-auto h-14 ">
-                            <thead>
+                        <table className="min-w-max w-full table-auto h-14">
+                            <thead className="">
                                 <tr className="bg-[#201E50] text-white uppercase text-m">
                                     <th className="py-3 px-6 text-center w-1/6">RANK</th>
                                     <th className="py-3 px-6 text-start w-1/6">NAME</th>

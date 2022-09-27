@@ -29,9 +29,9 @@ body {
     height: 90vh;
   
   }
-  
-
-
+.burger-menu {
+    display: none;
+  }
 
 
 
@@ -39,4 +39,170 @@ body {
     .navbar {
       display: none;
     }
+    .menu-desktop {
+      display: none;
+    }
+
+    #site-menu li, #site-menu p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5rem;
+      width: 15rem;
+      height: 4rem;
+      color: #F5F4F2;
+      background-color: #201E50;
+      text-decoration: none;
+      text-transform: none;
+      list-style: none;
+      display: none;
+      text-align: center;
+      transition: all .5s;
+      /* Credit to Mike for the responsive font-sizing https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
+      font-size: calc(20px + (20 - 18) * ((100vw - 300px) / (1600 - 300)));
   }
+
+  #site-menu li {
+    margin-bottom: 1.5rem;
+    
+  }
+
+  #site-menu p {
+    font-size: 1.5rem;
+  }
+  
+  /* hides toggle handler */
+  [type="checkbox"]:checked, [type="checkbox"]:not(:checked) {
+      display: none;
+  }
+  
+  /* menu button & animation */
+  .menu-button {
+    position: absolute;
+    right:10px;
+    top:0px;
+    z-index: 100;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .line {
+      position: relative;
+      left: 25%;
+      width: 60%;
+      height: 4px;
+      background:#201E50;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.5s ease;
+  }
+  
+  .line:nth-child(1) {
+      top: 35%;
+  }
+  
+  .line:nth-child(2) {
+      top: 45%;
+  }
+  
+  .line:nth-child(3) {
+      top: 55%;
+  }
+  
+  /* animate background of lines */
+  .menu-button:hover .line::after {
+      transform: translateX(0);
+  }
+  
+  
+  #menu-toggle:checked + .menu-button  { 
+      transform: rotate(180deg);
+      transition: transform 0.2s ease;
+  }
+  
+  #menu-toggle:checked + #menu-button .line:nth-child(1){
+      transform: translateY(5px) rotate(45deg);/*45deg*/
+  }
+  
+  
+  #menu-toggle:checked + #menu-button .line:nth-child(2) {
+      transform: scaleX(0);
+      opacity:0;
+  }
+  
+  #menu-toggle:checked + #menu-button .line:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);/* -45deg*/
+  }
+  
+  
+  /* animate menu in */
+  #menu-toggle:checked + #menu-button + #site-menu{
+      animation: menu-open 0.75s ease both;
+      background-color: #F5F4F2;
+      
+    
+  }
+  
+  #menu-toggle:checked + #menu-button + #site-menu ul > li, #site-menu p {
+      display: flex;
+      animation: menu-txt-open 0.75s ease both;
+      animation: menu-closed 0.75s ease both;
+      
+  }
+
+  
+  #site-menu {
+      position: absolute;
+      width: 0px;
+      height: 100vh;
+      right:0px;
+      top:0px;
+      margin: 0px; 
+      padding: 0px;
+      background-color: #201E50;
+      animation: menu-closed .3s both;
+      transition: .2s;
+  }
+  
+  #site-menu-titles{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      height: auto;
+      
+  }
+  
+  @keyframes menu-open {
+      100% {
+          width: 100vw;
+          height: 100vh;
+      }
+  }
+  @keyframes menu-closed {
+      0% {
+         width: 100vw;
+         height: 100vh;
+      }
+  }
+  @keyframes menu-txt-open {
+      0%, 70% {
+         opacity:0;
+      }
+      100% {
+          opacity:1;
+      }
+  }
+  
+
+}
+
+  
