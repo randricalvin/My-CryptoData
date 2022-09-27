@@ -70,9 +70,9 @@ const CoinsList = () => {
             <div className="flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                     <div className="shadow-xl">
-                        <table className="min-w-max w-full table-auto h-14">
+                        <table className="min-w-max w-full table-auto h-14 ">
                             <thead>
-                                <tr className="bg-[#201E50] text-white uppercase text-m ">
+                                <tr className="bg-[#201E50] text-white uppercase text-m">
                                     <th className="py-3 px-6 text-center w-1/6">RANK</th>
                                     <th className="py-3 px-6 text-start w-1/6">NAME</th>
                                     <th className="py-3 px-6 text-end w-1/6">PRICE</th>
@@ -108,10 +108,10 @@ const CoinsList = () => {
 
             <div className="flex justify-center">
                 <div className="flex justify-center my-8 mx-5">
-                {seeMore && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg hover:-translate-y-1 hover:scale-105" onClick={() => setDisplay(display + 50)}>View More</button>}
+                {seeMore && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg hover:scale-105" onClick={() => setDisplay(display + 50)}>View More</button>}
                 </div>
                 <div className="flex justify-center my-8">
-                {seeLess && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg hover:-translate-y-1 hover:scale-105" onClick={() => setDisplay(display - 50)}>View Less</button>}
+                {seeLess && <button className="bg-[#201E50] text-white text-m w-28 h-10 rounded-full hover:bg-[#4540ca] transition duration-300 ease-in-out shadow-lg hover:scale-105" onClick={() => setDisplay(display - 50)}>View Less</button>}
                 </div>
             </div>
     </div>
