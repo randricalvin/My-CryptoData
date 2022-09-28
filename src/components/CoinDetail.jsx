@@ -6,8 +6,7 @@ import BackButton from './BackButton'
 const CoinDetail = () => {
   const {id} = useParams()
   const [coinDetail, setCoinDetail] = useState({})
-  const [coinData, setCoinData] = useState({})
-  console.log (coinData)
+  
   
   useEffect(() => {
       axios.get(`https://api.coingecko.com/api/v3/coins/${id}`)
@@ -18,14 +17,6 @@ const CoinDetail = () => {
       .catch(error => console.log(error))
   }, [id])
 
-  useEffect(() => {
-    axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=1&interval=hourly`)
-    .then(res => {
-        setCoinData(res.data)
-        console.log(res.data)
-    })
-    .catch(error => console.log(error))
-}, [id])
 
   return (
     <div>
@@ -44,11 +35,11 @@ const CoinDetail = () => {
                   {coinDetail.symbol ? <span className='mx-4'>{coinDetail.symbol.toUpperCase()}/USD</span> : null}
               </div>
               <div className='text-2xl font-bold'>
-                  {coinDetail.market_data?.current_price ? <span>${coinDetail.market_data.current_price.usd.toFixed(4)}</span> : null}
+                  {coinDetail.market_data?.current_price ? <span>${coinDetail.market_data.current_price.usd}</span> : null}
               </div>
             </div>
 
-            <div className='flex justify-around items-center my-16'>
+            <div className='info-coin flex justify-around items-center my-16'>
                 <div className="flex-wrap">
                     <h1 className="text-lg">Market Cap :</h1>
                       {coinDetail.market_data?.market_cap.usd ? <span className="text-xl font-bold"> ${(coinDetail.market_data.market_cap.usd/1000000000).toFixed(2)}B</span> : null}
@@ -59,11 +50,11 @@ const CoinDetail = () => {
                 </div>
                 <div className="flex-wrap">
                     <h1 className="text-lg">Low (24H) :</h1>
-                    {coinDetail.market_data?.low_24h.usd ? <span className="text-xl font-bold"> ${coinDetail.market_data.low_24h.usd.toFixed(2)}</span> : null}
+                    {coinDetail.market_data?.low_24h.usd ? <span className="text-xl font-bold"> ${coinDetail.market_data.low_24h.usd}</span> : null}
                 </div>
                 <div className="flex-wrap">
                     <h1 className="text-lg">High (24H) :</h1>
-                    {coinDetail.market_data?.high_24h.usd ? <span className="text-xl font-bold"> ${coinDetail.market_data.high_24h.usd.toFixed(2)}</span> : null}
+                    {coinDetail.market_data?.high_24h.usd ? <span className="text-xl font-bold"> ${coinDetail.market_data.high_24h.usd}</span> : null}
                 </div>
             </div>
         </div>
@@ -111,7 +102,7 @@ const CoinDetail = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="description-coin flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                   <h1 className='text-2xl font-bold mb-5'>About</h1>
                   <span>{coinDetail.description ? <p className="text-justify mb-20">{coinDetail.description.en}</p> : null}</span>

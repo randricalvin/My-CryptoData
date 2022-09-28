@@ -40,7 +40,7 @@ const NewsList = () => {
 
   return (
     <div className="font-sans">
-        <h1 className="lg:text-4xl md:text-3xl sm:text-2xl font-bold flex justify-center mt-20 ">
+        <h1 className="title-news lg:text-4xl md:text-3xl sm:text-2xl font-bold flex justify-center mt-20 ">
             Latest crypto news
         </h1>
         <div className="">

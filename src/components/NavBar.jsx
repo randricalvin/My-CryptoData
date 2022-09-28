@@ -13,7 +13,7 @@ function NavBar() {
               <h1 className="">
                 My CryptoData
               </h1>
-            </Link>
+        </Link>
 
         <div className="flex flex-row gap-10">
           <Link to="/">
@@ -35,32 +35,37 @@ function NavBar() {
       </div>
 
       {/* build the burger menu */}
-      <input type="checkbox" id="menu-toggle" value="checkbox" />
-        <label id="menu-button" className="menu-button" htmlFor="menu-toggle">
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-        </label>
-        <div id="site-menu">
-          <ul id="site-menu-titles">
-              <li>
-                <Link to="/">
-                  <p onClick={"hidden"}>
-                    Home
-                  </p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/market">
-                  <p onClick={"hidden"}>Market</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/news">
-                  <p onClick={"hidden"}>Crypto News</p>
-                </Link>
-              </li>
-          </ul>
+      <div className="lg:hidden burger-menu"> 
+          <Link to="/" className="logo">
+                  <img className="h-20 mr-4"src={logo1} alt="logo" />
+          </Link>
+        <input type="checkbox" id="menu-toggle" value="checkbox" />
+          <label id="menu-button" className="menu-button" htmlFor="menu-toggle">
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
+          </label>
+          <div id="site-menu">
+            <ul id="site-menu-titles">
+                <li>
+                  <Link to="/">
+                    <p onClick={"hidden"}>
+                      Home
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/market">
+                    <p onClick={"hidden"}>Market</p>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/news">
+                    <p onClick={"hidden"}>Crypto News</p>
+                  </Link>
+                </li>
+            </ul>
+          </div>
         </div>
     </div>
   );

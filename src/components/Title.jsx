@@ -4,7 +4,7 @@ function Title() {
   return (
     <div>
         <div className="text-presentation">
-            <h1 className=''>
+            <h1 className="">
                 My first tracker of cryptocurrencies
             </h1>
         </div>
