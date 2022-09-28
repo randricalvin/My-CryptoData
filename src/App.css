@@ -228,7 +228,7 @@ body {
   .logo {
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
   }
 
   .text-presentation {
@@ -536,7 +536,8 @@ body {
   .logo {
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    align-items: center;
+    padding-top: 1.25rem;
   }
 
 }

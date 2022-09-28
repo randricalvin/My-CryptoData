@@ -24,25 +24,25 @@ const Coins = (
                             <table className="min-w-max w-full table-auto h-14">
                                 <tbody className="text-m font-medium">
                                     <tr className="border-b border-gray-200 hover:bg-[#4540ca13] duration-100 ease-in-out">
-                                        <td className="text-left whitespace-normal w-1/6">
+                                        <td className="whitespace-normal w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-center">
                                                     <span>#{rank}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-normal w-1/6">
+                                        <td className="whitespace-normal w-1/6">
                                             <div className="flex items-center justify-start">
-                                                <div className="py-3 px-6 text-left">
-                                                    <img className="w-8 h-8 rounded-full" src={image} alt="coin"/>
+                                                <div className="py-3 text-justify">
+                                                    <img className="w-8 h-8 rounded-full mr-6" src={image} alt="coin"/>
                                                 </div>
                                             <Link to={`/market/${id}`}>
                                                 <span className=" hover:font-extrabold ease-in-out duration-300 ">{name}</span>
                                             </Link>
                                             </div>
                                         </td>
-                                        <td className="text-left whitespace-normal w-1/6">
-                                            <div className="py-3 px-6">
+                                        <td className="whitespace-normal w-1/6">
+                                            <div className="px-6">
                                                 <div className="flex justify-end">
                                                     <span>${price}</span>
                                                 </div>
@@ -56,7 +56,7 @@ const Coins = (
                                         <td className="py-3 px-6 w-1/6 whitespace-normal">
                                             <span className="flex items-center justify-end">{(supply/1000000).toFixed(2)}M</span>
                                         </td>
-                                        <td className="py-3 px-6 w-1/6 whitespace-normal">
+                                        <td className="py-3 w-1/6 whitespace-normal">
                                             {change24h < 0 ? (
                                                 <span className="flex items-center justify-center text-red-500">
                                                     {change24h.toFixed(2)}%
