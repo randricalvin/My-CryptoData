@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Coins from './Coins'
+import "../App.css";
 
 
 const CoinsList = () => {
@@ -53,9 +54,9 @@ const CoinsList = () => {
 
   return (
     <div className="font-sans w-full">
-        <div className='flex justify-center my-20'>
+        <div className='flex justify-center my-20 search-bar'>
             <input
-            className="bg-lightGrey h-10 w-1/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
+            className="bg-lightGrey h-10 lg:w-1/3 md:w-1/2 sm:w-2/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
             type="search"
             onKeyPress={(e) => {
                 e.key === "Enter" && e.preventDefault();
@@ -70,8 +71,8 @@ const CoinsList = () => {
             <div className="flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                     <div className="shadow-xl">
-                        <table className="min-w-max w-full table-auto h-14 ">
-                            <thead>
+                        <table className="min-w-max w-full table-auto h-14">
+                            <thead className="">
                                 <tr className="bg-[#201E50] text-white uppercase text-m">
                                     <th className="py-3 px-6 text-center w-1/6">RANK</th>
                                     <th className="py-3 px-6 text-start w-1/6">NAME</th>
