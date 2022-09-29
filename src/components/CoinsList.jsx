@@ -10,13 +10,14 @@ const CoinsList = () => {
     const [display, setDisplay] = useState(50)
     const [seeMore, setSeeMore] = useState(false)
     const [seeLess, setSeeLess] = useState(false)
+    console.log(coins)
     console.log (display)
     console.log (seeMore)
 
 
     useEffect(() => {
         axios
-            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false')
+            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=3000&page=1&sparkline=false')
             .then(res => {
                 setDisplay(50)
                 setCoins(res.data)

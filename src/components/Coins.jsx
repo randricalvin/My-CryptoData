@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import down from '../assets/down.svg'
+import up from '../assets/up.svg'
 
 const Coins = (
     {id,
@@ -58,11 +60,13 @@ const Coins = (
                                         </td>
                                         <td className="py-3 w-1/6 whitespace-normal">
                                             {change24h < 0 ? (
-                                                <span className="flex items-center justify-center text-red-500">
-                                                    {change24h.toFixed(2)}%
+                                                <span className="flex items-center justify-center text-red-600 bg-red-100 w-20 mx-auto rounded-full">
+                                                    <img className="h-3 mr-2" src={down} alt="arrow down"/>
+                                                    {change24h.toFixed(2).replace('-', '')}%
                                                 </span>
                                             ) : (
-                                                <span className="flex items-center justify-center text-green-500">
+                                                <span className="flex items-center justify-center text-green-600 bg-green-100 w-20 mx-auto rounded-full">
+                                                    <img className="h-3 mr-2" src={up} alt="arrow up"/>
                                                     {change24h.toFixed(2)}%
                                                 </span>
                                             )}
