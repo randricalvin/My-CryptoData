@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import BackButton from './BackButton'
+import up from '../assets/up.svg'
+import down from '../assets/down.svg'
+import CoinChart from './CoinChart'
 
 const CoinDetail = () => {
   const {id} = useParams()
@@ -77,9 +80,8 @@ const CoinDetail = () => {
                         </thead>
                         <tbody className="text-lg">
                             <tr>
-                                {/* 1h */}
-                                <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</span> : null}</td>
-                                
+                                {/* 1h arrow up if the price is positve and arrow down if the price is negative the items with one div parent and two div children*/}
+                              
                                 {/* 24h */}
                                 <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_24h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</span> : null}</td>
                                   
@@ -101,7 +103,7 @@ const CoinDetail = () => {
                 </div>
               </div>
             </div>
-
+            <CoinChart />
             <div className="description-coin flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                   <h1 className='text-2xl font-bold mb-5'>About</h1>

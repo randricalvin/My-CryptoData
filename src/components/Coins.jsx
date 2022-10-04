@@ -26,14 +26,14 @@ const Coins = (
                             <table className="min-w-max w-full table-auto h-14">
                                 <tbody className="text-m font-medium">
                                     <tr className="border-b border-gray-200 hover:bg-[#4540ca13] duration-100 ease-in-out">
-                                        <td className="whitespace-normal w-1/6">
+                                        <td className="rank whitespace-normal w-1/6">
                                             <div className="py-3 px-6">
                                                 <div className="flex justify-center">
                                                     <span>#{rank}</span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td className="whitespace-normal w-1/6">
+                                        <td className="name whitespace-normal w-1/6">
                                             <div className="flex items-center justify-start">
                                                 <div className="py-3 text-justify">
                                                     <img className="w-8 h-8 rounded-full mr-6" src={image} alt="coin"/>

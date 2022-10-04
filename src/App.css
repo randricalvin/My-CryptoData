@@ -8,7 +8,9 @@ body {
   background-color: #f3f3eb;
   box-sizing: border-box;
   margin: 0;
+  
 }
+
 
 .text-presentation {
     font-family: 'Red Hat Display', sans-serif;
@@ -28,6 +30,11 @@ body {
     justify-content: space-evenly;
     height: 90vh;
   
+  }
+
+  .head-table {
+    position: sticky;
+    top: 0;
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -538,6 +545,17 @@ body {
     justify-content: center;
     align-items: center;
     padding-top: 1.25rem;
+  }
+
+  .rank {
+    position: sticky;
+    left: 0;
+    display: flex;
+    
+  }
+
+  .name {
+    position: sticky;
   }
 
 }
