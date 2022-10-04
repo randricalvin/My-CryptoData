@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Title from "../components/Title";
 import HomeImage from "../components/HomeImage";
 import ButtonStart from "../components/ButtonStart";
-import bg from "../assets/bg.svg";
+import Loader from "../components/Loader";
 
 function Home() {
-  return (
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+
+  return loading ? (
+    <Loader />
+  ) : (
     <div>
-            {/* <img src={bg} alt="background" className="background" /> */}
             <div className="page-home flex font-sans">
               <div className="flex flex-col ">
                 <Title />

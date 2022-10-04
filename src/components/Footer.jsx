@@ -32,9 +32,9 @@ const Footer = () => {
                     <span>${coinFooter[1].current_price.toFixed(2)}</span>
                 </div> : null}
                 {coinFooter[4] ? <div className='flex justify-center items-center'>
-                    <img className='w-8 h-8 rounded-full border-2 mx-4' src={coinFooter[4].image} alt={coinFooter[4].name}/>
-                    <span>{coinFooter[4].symbol.toUpperCase()} :</span>
-                    <span>${coinFooter[4].current_price.toFixed(2)}</span>
+                    <img className='w-8 h-8 rounded-full border-2 mx-4' src={coinFooter[3].image} alt={coinFooter[3].name}/>
+                    <span>{coinFooter[3].symbol.toUpperCase()} :</span>
+                    <span>${coinFooter[3].current_price.toFixed(2)}</span>
                 </div> : null}
             </div>
 

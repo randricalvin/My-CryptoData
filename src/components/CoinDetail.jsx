@@ -6,7 +6,7 @@ import up from '../assets/up.svg'
 import down from '../assets/down.svg'
 import CoinChart from './CoinChart'
 
-const CoinDetail = () => {
+const CoinDetail = ({ coinId }) => {
   const {id} = useParams()
   const [coinDetail, setCoinDetail] = useState({})
   
@@ -80,8 +80,9 @@ const CoinDetail = () => {
                         </thead>
                         <tbody className="text-lg">
                             <tr>
-                                {/* 1h arrow up if the price is positve and arrow down if the price is negative the items with one div parent and two div children*/}
-                              
+                                {/* 1h */}
+                                <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</span> : null}</td>
+
                                 {/* 24h */}
                                 <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_24h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</span> : null}</td>
                                   
@@ -103,7 +104,11 @@ const CoinDetail = () => {
                 </div>
               </div>
             </div>
-            <CoinChart />
+            <div className="description-coin flex items-center justify-center mb-20">
+              <div className="w-full lg:w-5/6">
+              <CoinChart />
+              </div>
+            </div>
             <div className="description-coin flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                   <h1 className='text-2xl font-bold mb-5'>About</h1>
