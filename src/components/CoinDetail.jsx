@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import BackButton from './BackButton'
+import ViewChartButton from './ViewChartButton'
 
 const CoinDetail = () => {
   const {id} = useParams()
@@ -23,7 +24,7 @@ const CoinDetail = () => {
     <BackButton />
     <div className="font-sans h-full">
       <div className="flex items-center justify-center">
-        <div className=" bg-[#F5F4F2] text-black shadow-lg w-full lg:w-5/6 ">
+        <div className=" bg-white text-black shadow-lg w-full lg:w-5/6 ">
             <div className="flex justify-center items-center mt-10">
               {coinDetail.market_cap_rank ? <span className="text-lg bg-[#4540ca] flex justify-center items-center text-[#F5F4F2] rounded-full" style={{minWidth : "2rem", minHeight : "2rem"}}>{coinDetail.market_cap_rank}</span> : null}
               <h1 className='text-4xl font-bold flex justify-center items-center mx-2'>{coinDetail.name}</h1>
@@ -63,8 +64,8 @@ const CoinDetail = () => {
       <div className="overflow-x-auto">
         <div className="flex items-center justify-center">
             <div className="w-full lg:w-5/6">
-                <div className="bg-[#F5F4F2] text-black shadow-lg">
-                    <table className="min-w-max w-full table-auto mt-20 mb-28">
+                <div className="bg-white text-black shadow-lg">
+                    <table className="min-w-max w-full table-auto my-20">
                       <thead>
                             <tr className="text-lg bg-[#201E50] text-[#F5F4F2]">
                                 <th className="py-3 px-6 text-center w-1/6">1H</th>
@@ -79,7 +80,7 @@ const CoinDetail = () => {
                             <tr>
                                 {/* 1h */}
                                 <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_1h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_1h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_1h_in_currency.usd.toFixed(2)}%</span> : null}</td>
-                                
+
                                 {/* 24h */}
                                 <td className="py-3 px-6 text-center w-1/6">{coinDetail.market_data?.price_change_percentage_24h_in_currency?.usd ? <span className={coinDetail.market_data.price_change_percentage_24h_in_currency.usd > 0 ? 'text-green-500' : 'text-red-500'}>{coinDetail.market_data.price_change_percentage_24h_in_currency.usd.toFixed(2)}%</span> : null}</td>
                                   
@@ -101,12 +102,16 @@ const CoinDetail = () => {
                 </div>
               </div>
             </div>
-
+            
             <div className="description-coin flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                   <h1 className='text-2xl font-bold mb-5'>About</h1>
-                  <span>{coinDetail.description ? <p className="text-justify mb-20">{coinDetail.description.en}</p> : null}</span>
+                  <span>{coinDetail.description ? <p className="text-justify">{coinDetail.description.en}</p> : null}</span>
                 </div>
+            </div>
+
+            <div className="flex justify-center my-20">
+              <ViewChartButton />
             </div>
     </div>
   </div>

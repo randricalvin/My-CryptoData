@@ -4,10 +4,11 @@ import HomeImage from "../components/HomeImage";
 import ButtonStart from "../components/ButtonStart";
 
 function Home() {
+
   return (
     <div>
-            <div className="page-home flex font-sans"> 
-              <div className="flex flex-col">
+            <div className="page-home flex font-sans">
+              <div className="flex flex-col ">
                 <Title />
                 <ButtonStart />
               </div> 

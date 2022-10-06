@@ -6,6 +6,7 @@ import Market from "./pages/Market";
 import CryptoNews from "./pages/CryptoNews";
 import CoinDetail from "./components/CoinDetail";
 import Footer from "./components/Footer";
+import CoinChart from "./components/CoinChart";
 
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/market" element={<Market />} />
         <Route path="/market/:id" element={<CoinDetail />} />
+        <Route path="/market/:id/chart" element={<CoinChart />} />
         <Route path="/news" element={<CryptoNews />} />
       </Routes>
     </Router>

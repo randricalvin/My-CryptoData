@@ -17,7 +17,7 @@ const CoinsList = () => {
 
     useEffect(() => {
         axios
-            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=3000&page=1&sparkline=false')
+            .get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false')
             .then(res => {
                 setDisplay(50)
                 setCoins(res.data)
@@ -54,10 +54,10 @@ const CoinsList = () => {
 
 
   return (
-    <div className="font-sans w-full">
+    <div className="font-sans">
         <div className='flex justify-center my-20 search-bar'>
             <input
-            className="bg-lightGrey h-10 lg:w-1/3 md:w-1/2 sm:w-2/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
+            className="bg-lightGrey h-10 lg:w-1/3 md:w-1/2 sm:w-2/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2 rounded-full"
             type="search"
             onKeyPress={(e) => {
                 e.key === "Enter" && e.preventDefault();
