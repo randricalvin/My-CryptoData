@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment/moment';
-import Loader from './Loader';
+import BackButton from './BackButton';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -40,17 +40,8 @@ const CoinChart = () => {
         .catch(error => console.log(error))
     }, [id])
 
-    // adding loader to the chart if the data is not loaded yet
-    // const [loading, setLoading] = useState(true)
-
-    // useEffect(() => {
-    //     if (coinChart) {
-    //         setLoading(false)
-    //     }
-    // }, [coinChart])
-
     // adding the data to the chart
-    const coinChartData = coinChart.prices ? coinChart.prices.map((value) => ({ x: value[0], y: value[1].toFixed(2) })) : null
+    const coinChartData = coinChart.prices ? coinChart.prices.map((value) => ({ x: value[0], y: value[1] })) : null
 
     
     const options = {
@@ -71,9 +62,15 @@ const CoinChart = () => {
         ],
     };
 
+
   return (
     <div>
-        <Line options={options} data={data}/>
+        <BackButton />
+        <div className="flex items-center justify-center mb-20">
+            <div className="w-full lg:w-5/6">
+                <Line options={options} data={data} />
+            </div>
+        </div>
     </div>
   )
 }

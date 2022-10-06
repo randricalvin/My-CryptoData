@@ -54,10 +54,10 @@ const CoinsList = () => {
 
 
   return (
-    <div className="font-sans w-full">
+    <div className="font-sans">
         <div className='flex justify-center my-20 search-bar'>
             <input
-            className="bg-lightGrey h-10 lg:w-1/3 md:w-1/2 sm:w-2/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2"
+            className="bg-lightGrey h-10 lg:w-1/3 md:w-1/2 sm:w-2/3 pl-5 text-m focus:outline-none text-darkBlue focus:ring-2 rounded-full"
             type="search"
             onKeyPress={(e) => {
                 e.key === "Enter" && e.preventDefault();

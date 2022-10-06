@@ -2,11 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import BackButton from './BackButton'
-import up from '../assets/up.svg'
-import down from '../assets/down.svg'
-import CoinChart from './CoinChart'
+import ViewChartButton from './ViewChartButton'
 
-const CoinDetail = ({ coinId }) => {
+const CoinDetail = () => {
   const {id} = useParams()
   const [coinDetail, setCoinDetail] = useState({})
   
@@ -26,7 +24,7 @@ const CoinDetail = ({ coinId }) => {
     <BackButton />
     <div className="font-sans h-full">
       <div className="flex items-center justify-center">
-        <div className=" bg-[#F5F4F2] text-black shadow-lg w-full lg:w-5/6 ">
+        <div className=" bg-white text-black shadow-lg w-full lg:w-5/6 ">
             <div className="flex justify-center items-center mt-10">
               {coinDetail.market_cap_rank ? <span className="text-lg bg-[#4540ca] flex justify-center items-center text-[#F5F4F2] rounded-full" style={{minWidth : "2rem", minHeight : "2rem"}}>{coinDetail.market_cap_rank}</span> : null}
               <h1 className='text-4xl font-bold flex justify-center items-center mx-2'>{coinDetail.name}</h1>
@@ -66,8 +64,8 @@ const CoinDetail = ({ coinId }) => {
       <div className="overflow-x-auto">
         <div className="flex items-center justify-center">
             <div className="w-full lg:w-5/6">
-                <div className="bg-[#F5F4F2] text-black shadow-lg">
-                    <table className="min-w-max w-full table-auto mt-20 mb-28">
+                <div className="bg-white text-black shadow-lg">
+                    <table className="min-w-max w-full table-auto my-20">
                       <thead>
                             <tr className="text-lg bg-[#201E50] text-[#F5F4F2]">
                                 <th className="py-3 px-6 text-center w-1/6">1H</th>
@@ -104,16 +102,16 @@ const CoinDetail = ({ coinId }) => {
                 </div>
               </div>
             </div>
-            <div className="description-coin flex items-center justify-center mb-20">
-              <div className="w-full lg:w-5/6">
-              <CoinChart />
-              </div>
-            </div>
+            
             <div className="description-coin flex items-center justify-center">
                 <div className="w-full lg:w-5/6">
                   <h1 className='text-2xl font-bold mb-5'>About</h1>
-                  <span>{coinDetail.description ? <p className="text-justify mb-20">{coinDetail.description.en}</p> : null}</span>
+                  <span>{coinDetail.description ? <p className="text-justify">{coinDetail.description.en}</p> : null}</span>
                 </div>
+            </div>
+
+            <div className="flex justify-center my-20">
+              <ViewChartButton />
             </div>
     </div>
   </div>
