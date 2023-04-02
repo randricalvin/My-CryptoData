@@ -75,12 +75,12 @@ const CoinsList = () => {
                         <table className="min-w-max w-full table-auto h-14">
                             <thead className="">
                                 <tr className="bg-[#201E50] text-white uppercase text-m">
-                                    <th className="py-3 px-6 text-center w-1/6">RANK</th>
-                                    <th className="py-3 px-6 text-start w-1/6">NAME</th>
-                                    <th className="py-3 px-6 text-end w-1/6">PRICE</th>
-                                    <th className="py-3 px-6 text-end w-1/6">MARKET CAP</th>
-                                    <th className="py-3 px-6 text-end w-1/6">TOTAL SUPPLY</th>
-                                    <th className="py-3 px-6 text-end w-1/6">PRICE CHANGE(24H)</th>
+                                    <th className="py-3 px-6 text-center">RANK</th>
+                                    <th className="py-3 px-6 text-start">NAME</th>
+                                    <th className="py-3 px-6 text-end">PRICE</th>
+                                    <th className="py-3 px-6 text-end">MARKET CAP</th>
+                                    <th className="py-3 px-6 text-end ">TOTAL SUPPLY</th>
+                                    <th className="py-3 px-6 text-end">PRICE CHANGE(24H)</th>
                                 </tr>
                             </thead>
                         </table>
